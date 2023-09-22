@@ -1,11 +1,12 @@
 package main.java.System.Scene;
 
 import main.java.System.Logging.Logger;
+import main.java.System.Scene.SystemScenes.DefaultScene;
 import processing.core.PApplet;
 
 public class SceneManager {
     private Scene[] scenes = {};
-    private Scene currentScene;
+    private Scene currentScene = new DefaultScene();
     private final Scene defaultScene = getSceneByName("System.defaultScene");
     private final Scene debugScene = getSceneByName("System.debugScene");
     private Scene previousScene = defaultScene;

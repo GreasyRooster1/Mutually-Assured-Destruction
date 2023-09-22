@@ -9,6 +9,8 @@ import main.java.System.Scene.SceneManager;
 import main.java.System.Time.Time;
 import processing.core.PApplet;
 
+import static main.java.Game.Registry.SceneRegistry.registerScenes;
+
 public class Setup {
     private static PApplet pAppletInstance;
     private static SceneManager sceneManager;
@@ -18,6 +20,7 @@ public class Setup {
         pAppletInstance = pai;
         sceneManager = new SceneManager();
         SceneRegistry.registerScenes();
+        registerScenes();
         Startup.begin();
     }
 

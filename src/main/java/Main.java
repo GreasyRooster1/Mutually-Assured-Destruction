@@ -1,4 +1,4 @@
-package main;
+package main.java;
 
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Setup.Setup;
@@ -18,7 +18,7 @@ public class Main extends PApplet{
     }
 
     public static void main(String... args) {
-        PApplet.main("Main");
+        PApplet.main("main.java.Main");
     }
 
     public void keyReleased() {
