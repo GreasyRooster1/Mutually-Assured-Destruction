@@ -29,11 +29,11 @@ public class Scene {
         if (backgroundScene != null) {
             backgroundScene.update();
         }
+        Setup.getApplet().fill(backgroundColor);
         if (!isPaused) {
             camera.update();
             everyFrame();
         }
-        Setup.getApplet().fill(backgroundColor);
         if (Setup.getApplet().alpha(backgroundColor) != 0) {
             Setup.getApplet().rect(-10, -10, 600, 600);
         }
