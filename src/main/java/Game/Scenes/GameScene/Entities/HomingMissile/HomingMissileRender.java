@@ -17,7 +17,10 @@ public class HomingMissileRender extends EntityRender {
         float camY = currentScene.getCamera().getCamY();
         applet.fill(255,0,50);
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
-        float dir = atan2(Setup.getMouseY()-e.getY(),Setup.getMouseX()-e.getX());
+        float dir = atan2(e.getY()-Setup.getMouseY(),e.getX()-Setup.getMouseX());
+        applet.stroke(255,255,0);
+        applet.strokeWeight(3);
         applet.line(e.getX() + camX, e.getY() + camY,e.getX() + camX+cos(dir)*10, e.getY() + camY+sin(dir)*10);
+        applet.noStroke();
     }
 }

@@ -1,6 +1,7 @@
 package main.java.Game.Scenes.GameScene.Entities.HyperMissile;
 
 import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Missile.MissileRender;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Setup.Setup;
 
@@ -10,7 +11,7 @@ public class HyperMissile extends Hit {
 
     public HyperMissile(float xa, float ya) {
         super(xa, ya);
-        setRender(new HyperMissileRender());
+        setRender(new MissileRender());
         setSize(15);
         setFriction(1);
         float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
