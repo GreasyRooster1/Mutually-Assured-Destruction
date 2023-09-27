@@ -11,7 +11,7 @@ public class HomingMissile extends Hit {
     public HomingMissile(float xa, float ya) {
         super(xa, ya);
         setRender(new HomingMissileRender());
-        setSize(13);
+        setSize(10);
         setFriction(0.9f);
         setDifficulty(50);
     }
@@ -20,10 +20,10 @@ public class HomingMissile extends Hit {
     public void everyFrame() {
         super.everyFrame();
         float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
-        fuel-=1;
+        fuel-=1.5f;
         if(fuel>0){
-            setXvel(getXvel()+cos(dir)*1.2f*(fuel/100));
-            setYvel(getYvel()+sin(dir)*1.2f*(fuel/100));
+            setXvel(getXvel()+cos(dir)*1.1f*(fuel/100));
+            setYvel(getYvel()+sin(dir)*1.1f*(fuel/100));
         }else{
             Setup.getSceneManager().getCurrentScene().addEntity(new Explosion(getX(),getY()));
             kill();

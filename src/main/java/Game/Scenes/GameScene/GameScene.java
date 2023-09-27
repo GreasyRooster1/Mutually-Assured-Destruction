@@ -4,6 +4,7 @@ import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Spawning.Spawner;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Scene.Scene;
+import main.java.System.Setup.Setup;
 
 public class GameScene extends Scene {
     public Player player;
@@ -28,5 +29,6 @@ public class GameScene extends Scene {
     public void everyFrame() {
         super.everyFrame();
         Spawner.spawn();
+        Setup.getApplet().noStroke();
     }
 }
