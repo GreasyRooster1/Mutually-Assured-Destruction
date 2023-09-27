@@ -8,7 +8,7 @@ import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import static processing.core.PApplet.dist;
 
 public class Hit extends Entity {
-
+    private int difficulty = 1;
     public Hit(float xa, float ya) {
         super(xa, ya);
     }
@@ -20,5 +20,13 @@ public class Hit extends Entity {
         if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2) {
             player.kill();
         }
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 }

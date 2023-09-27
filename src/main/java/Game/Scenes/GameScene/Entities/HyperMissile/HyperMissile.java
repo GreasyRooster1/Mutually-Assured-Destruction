@@ -16,6 +16,7 @@ public class HyperMissile extends Hit {
         float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
         setXvel(cos(dir)*2);
         setYvel(sin(dir)*2);
+        setDifficulty(50);
     }
 
     @Override

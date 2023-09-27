@@ -17,6 +17,7 @@ public class Missile extends Hit {
         float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
         setXvel(cos(dir));
         setYvel(sin(dir));
+        setDifficulty(25);
     }
 
     @Override

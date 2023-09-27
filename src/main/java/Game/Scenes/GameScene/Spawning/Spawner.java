@@ -1,37 +1,60 @@
 package main.java.Game.Scenes.GameScene.Spawning;
 
+import main.java.Game.Scenes.GameScene.Entities.HomingMissile.HomingMissile;
 import main.java.Game.Scenes.GameScene.Entities.HyperMissile.HyperMissile;
 import main.java.Game.Scenes.GameScene.Entities.Missile.Missile;
 import main.java.System.Logging.Logger;
 import main.java.System.Setup.Setup;
+import processing.core.PApplet;
 
 import static processing.core.PApplet.*;
 
 public class Spawner {
     public static void spawn(){
-        if(round(Setup.getApplet().random(0,10))==1){
-            if(round(Setup.getApplet().random(0,1))==1) {
-                addMissile(round(Setup.getApplet().random(0,1))*500,Setup.getApplet().random(0,500));
-            }else{
-                addMissile(Setup.getApplet().random(0,500),round(Setup.getApplet().random(0,1))*500);
-            }
+        PApplet applet = Setup.getApplet();
+        if(round(applet.random(0,25))==1){
+            addMissile();
         }
-        if(round(Setup.getApplet().random(0,50))==1){
-            if(round(Setup.getApplet().random(0,1))==1) {
-                addHyperMissile(round(Setup.getApplet().random(0,1))*500,Setup.getApplet().random(0,500));
-            }else{
-                addHyperMissile(Setup.getApplet().random(0,500),round(Setup.getApplet().random(0,1))*500);
-            }
+
+        if(round(applet.random(0,150))==1){
+            addHyperMissile();
+        }
+
+        if(round(applet.random(0,75))==1){
+            addHomingMissile();
         }
     }
 
-    static void addMissile(float x, float y){
-        Missile missile = new Missile(x,y);
+    private static void addHomingMissile() {
+        HomingMissile missile;
+        if(round(Setup.getApplet().random(0,1))==1) {
+            missile = new HomingMissile(round(Setup.getApplet().random(0,1))*500,Setup.getApplet().random(0,500));
+        }else{
+            missile = new HomingMissile(Setup.getApplet().random(0, 500), round(Setup.getApplet().random(0, 1)) * 500);
+        }
+
         Setup.getSceneManager().getCurrentScene().addEntity(missile);
     }
 
-    static void addHyperMissile(float x, float y){
-        HyperMissile missile = new HyperMissile(x,y);
+    static void addMissile(){
+        Missile missile;
+        if(round(Setup.getApplet().random(0,1))==1) {
+            missile = new Missile(round(Setup.getApplet().random(0,1))*500,Setup.getApplet().random(0,500));
+        }else{
+            missile = new Missile(Setup.getApplet().random(0, 500), round(Setup.getApplet().random(0, 1)) * 500);
+        }
+
+        Setup.getSceneManager().getCurrentScene().addEntity(missile);
+    }
+
+    static void addHyperMissile(){
+        HyperMissile missile;
+        if(round(Setup.getApplet().random(0,1))==1) {
+            missile = new HyperMissile(round(Setup.getApplet().random(0,1))*500,Setup.getApplet().random(0,500));
+        }else{
+            missile = new HyperMissile(Setup.getApplet().random(0, 500), round(Setup.getApplet().random(0, 1)) * 500);
+        }
+
         Setup.getSceneManager().getCurrentScene().addEntity(missile);
     }
 }

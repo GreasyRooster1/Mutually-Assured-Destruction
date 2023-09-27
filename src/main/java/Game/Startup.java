@@ -11,6 +11,6 @@ public class Startup {
     public static void begin(){
         Logger.log("Game.Startup received begin...","game");
         loadAssets();
-        Setup.getSceneManager().changeScene("gameScene");
+        Setup.getSceneManager().changeScene("startScene");
     }
 }
