@@ -13,9 +13,9 @@ public class LevelTextRender extends EntityRender {
     @Override
     public void render(Entity e) {
         PApplet applet = Setup.getApplet();
-        applet.textSize(50);
+        applet.textSize(15);
         applet.fill(255);
-        applet.textAlign(PConstants.CENTER);
+        applet.textAlign(PConstants.LEFT);
         applet.text("Level "+floor(Spawner.difficulty),e.getX(),e.getY());
     }
 }

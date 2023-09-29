@@ -17,7 +17,7 @@ public class Hit extends Entity {
     public void everyFrame() {
         super.everyFrame();
         Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
-        if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2) {
+        if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2&&player.phase<0) {
             player.kill();
         }
     }

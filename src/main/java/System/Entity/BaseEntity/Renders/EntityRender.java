@@ -17,5 +17,6 @@ public class EntityRender {
         float camY = currentScene.getCamera().getCamY();
         applet.fill(255);
         applet.rect(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
+        applet.noStroke();
     }
 }

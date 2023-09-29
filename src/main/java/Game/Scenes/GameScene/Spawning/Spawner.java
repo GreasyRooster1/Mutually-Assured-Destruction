@@ -49,7 +49,7 @@ public class Spawner {
         if (round(applet.random(0, 20)) == 1) {
             addProjectile(new HyperMissile(0,0));
         }
-        if(round(applet.random(0,10))==1){
+        if(round(applet.random(0,20))==1){
             addProjectile(new ClusterBomb(0,0));
         }
 

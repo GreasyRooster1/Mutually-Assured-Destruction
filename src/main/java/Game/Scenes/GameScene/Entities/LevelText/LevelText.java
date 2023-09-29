@@ -7,13 +7,6 @@ import main.java.System.Setup.Setup;
 public class LevelText extends Entity {
     public LevelText(float xa, float ya) {
         super(xa, ya);
-        setRender(new LoseTextRender());
-    }
-
-    @Override
-    public void onKey(char key) {
-        if(key==' '){
-            Setup.getSceneManager().changeScene("gameScene");
-        }
+        setRender(new LevelTextRender());
     }
 }
