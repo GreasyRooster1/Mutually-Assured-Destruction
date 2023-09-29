@@ -14,10 +14,15 @@ public class HyperMissile extends Hit {
         setRender(new MissileRender());
         setSize(15);
         setFriction(1);
-        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
-        setXvel(cos(dir)*2);
-        setYvel(sin(dir)*2);
         setDifficulty(50);
+    }
+
+    @Override
+    public void onMissileCreate() {
+        super.onMissileCreate();
+        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
+        setXvel(cos(dir));
+        setYvel(sin(dir));
     }
 
     @Override

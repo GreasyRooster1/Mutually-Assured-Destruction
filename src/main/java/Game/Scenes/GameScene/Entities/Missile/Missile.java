@@ -14,10 +14,15 @@ public class Missile extends Hit {
         setRender(new MissileRender());
         setSize(20);
         setFriction(1);
+        setDifficulty(25);
+    }
+
+    @Override
+    public void onMissileCreate() {
+        super.onMissileCreate();
         float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
         setXvel(cos(dir));
         setYvel(sin(dir));
-        setDifficulty(25);
     }
 
     @Override

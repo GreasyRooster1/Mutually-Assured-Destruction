@@ -1,4 +1,4 @@
-package main.java.Game.Scenes.GameScene.Entities.Minigun;
+package main.java.Game.Scenes.GameScene.Entities.ClusterBomb;
 
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Entity.BaseEntity.Renders.EntityRender;
@@ -6,20 +6,16 @@ import main.java.System.Scene.Scene;
 import main.java.System.Setup.Setup;
 import processing.core.PApplet;
 
-import static processing.core.PApplet.*;
+import static processing.core.PApplet.round;
 
-public class MinigunRender extends EntityRender {
+public class ClusterBombRender extends EntityRender {
     @Override
     public void render(Entity e) {
         PApplet applet = Setup.getApplet();
         Scene currentScene = Setup.getSceneManager().getCurrentScene();
         float camX = currentScene.getCamera().getCamX();
         float camY = currentScene.getCamera().getCamY();
-        applet.fill(127);
-        applet.ellipse(e.getX() + camX, e.getY() + camY, 20, 20);
-        float dir = atan2(Setup.getMouseY()-e.getY(),Setup.getMouseX()-e.getX());
-        applet.stroke(127);
-        applet.strokeWeight(7);
-        applet.line(e.getX() + camX, e.getY() + camY, e.getX() + camX+cos(dir)*15, e.getY() + camY+sin(dir)*15);
+        applet.fill(applet.lerpColor(applet.color(255,0,0), applet.color(255,255,0), round((float) applet.frameCount /10)%2));
+        applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
     }
 }

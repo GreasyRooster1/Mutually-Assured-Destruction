@@ -22,6 +22,10 @@ public class Hit extends Entity {
         }
     }
 
+    public void onMissileCreate(){
+
+    }
+
     public int getDifficulty() {
         return difficulty;
     }
