@@ -1,13 +1,14 @@
-package main.java.Game.Scenes.GameScene.Entities.Explosion;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.Explosion;
 
-import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
-import main.java.Game.Scenes.GameScene.Entities.Missile.MissileRender;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.MissileRender;
 
 public class Explosion extends Hit {
     public Explosion(float xa, float ya) {
         super(xa, ya);
         setRender(new MissileRender());
         setSize(10);
+        setRender(new ExplosionRender());
     }
 
     @Override

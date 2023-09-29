@@ -1,4 +1,4 @@
-package main.java.Game.Scenes.GameScene.Entities.Hit;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit;
 
 import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Entity.BaseEntity.Entity;

@@ -1,12 +1,10 @@
-package main.java.Game.Scenes.GameScene.Entities.ClusterBomb.ClusterMiniBomb;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb.ClusterMiniBomb;
 
-import main.java.Game.Scenes.GameScene.Entities.Explosion.Explosion;
-import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
-import main.java.Game.Scenes.GameScene.Entities.Missile.MissileRender;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Explosion.Explosion;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.MissileRender;
 import main.java.System.Setup.Setup;
 import processing.core.PApplet;
-
-import java.util.Set;
 
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
@@ -32,7 +30,7 @@ public class ClusterMiniBomb extends Hit {
 
     public void setDir(float dir){
         PApplet applet = Setup.getApplet();
-        setXvel(cos(dir)*applet.random(1,5));
-        setYvel(sin(dir)*applet.random(1,5));
+        setXvel(cos(dir)*applet.random(1,8));
+        setYvel(sin(dir)*applet.random(1,8));
     }
 }

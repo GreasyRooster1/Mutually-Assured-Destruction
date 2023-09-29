@@ -1,5 +1,6 @@
 package main.java.Game.Scenes.GameScene;
 
+import main.java.Game.Scenes.GameScene.Entities.LevelText.LevelText;
 import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Spawning.Spawner;
 import main.java.System.Entity.BaseEntity.Entity;
@@ -15,7 +16,6 @@ public class GameScene extends Scene {
     public void onStartup(){
         name = "gameScene";
         setBackgroundColor(0,0,0);
-
     }
     public void onSwitch(){
         setPaused(false);
@@ -23,6 +23,8 @@ public class GameScene extends Scene {
         entities = e;
         player = new Player(250,250);
         addEntity(player);
+        Spawner.reset();
+        addEntity(new LevelText(0,15));
     }
 
     @Override

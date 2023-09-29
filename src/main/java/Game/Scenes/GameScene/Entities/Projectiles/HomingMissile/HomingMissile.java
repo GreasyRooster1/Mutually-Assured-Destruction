@@ -1,7 +1,7 @@
-package main.java.Game.Scenes.GameScene.Entities.HomingMissile;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile;
 
-import main.java.Game.Scenes.GameScene.Entities.Explosion.Explosion;
-import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Explosion.Explosion;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.System.Setup.Setup;
 
 import static processing.core.PApplet.*;

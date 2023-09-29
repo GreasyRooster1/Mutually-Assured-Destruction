@@ -1,12 +1,8 @@
-package main.java.Game.Scenes.GameScene.Entities.Minigun;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun;
 
-import main.java.Game.Scenes.GameScene.Entities.Explosion.Explosion;
-import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
-import main.java.Game.Scenes.GameScene.Entities.Minigun.Bullet.Bullet;
-import main.java.Game.Scenes.GameScene.Entities.Missile.MissileRender;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun.Bullet.Bullet;
 import main.java.System.Setup.Setup;
-
-import static processing.core.PApplet.*;
 
 public class Minigun extends Hit {
     private int ammo = 20;

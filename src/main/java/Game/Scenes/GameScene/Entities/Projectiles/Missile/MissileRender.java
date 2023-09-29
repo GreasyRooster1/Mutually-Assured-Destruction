@@ -1,4 +1,4 @@
-package main.java.Game.Scenes.GameScene.Entities.Missile;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile;
 
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Entity.BaseEntity.Renders.EntityRender;

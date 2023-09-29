@@ -1,10 +1,7 @@
 package main.java.Game.Scenes.GameScene.Entities.Player;
 
-import main.java.Game.Scenes.GameScene.Entities.Missile.MissileRender;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Setup.Setup;
-
-import static processing.core.PApplet.*;
 
 public class Player extends Entity {
     public Player(float xa, float ya) {

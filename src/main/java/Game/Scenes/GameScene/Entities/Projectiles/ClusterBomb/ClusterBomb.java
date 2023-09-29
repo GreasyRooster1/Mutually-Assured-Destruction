@@ -1,8 +1,8 @@
-package main.java.Game.Scenes.GameScene.Entities.ClusterBomb;
+package main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb;
 
-import main.java.Game.Scenes.GameScene.Entities.ClusterBomb.ClusterMiniBomb.ClusterMiniBomb;
-import main.java.Game.Scenes.GameScene.Entities.Explosion.Explosion;
-import main.java.Game.Scenes.GameScene.Entities.Hit.Hit;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb.ClusterMiniBomb.ClusterMiniBomb;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Explosion.Explosion;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Setup.Setup;
@@ -41,7 +41,7 @@ public class ClusterBomb extends Hit {
     }
 
     public void explode(){
-        for(float i=0;i<2*PI;i+=((2*PI)/15)){
+        for(float i=0;i<2*PI;i+=((2*PI)/30)){
             ClusterMiniBomb bomb = new ClusterMiniBomb(getX(),getY());
             bomb.setDir(i);
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
