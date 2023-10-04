@@ -1,6 +1,7 @@
 package main.java.System.Setup;
 
 import main.java.Game.Startup;
+import main.java.Main;
 import main.java.System.GlobalShortcut.GlobalShortcutRegistry;
 import main.java.System.GlobalShortcut.Types.GlobalShortcut;
 import main.java.System.Logging.Logger;
@@ -51,5 +52,17 @@ public class Setup {
         sceneManager.renderCurrentScene();
         updateShortcuts();
         Time.afterFrame();
+    }
+
+    public static int[] getKeysDown(){
+        return ((Main)pAppletInstance).getKeysDown();
+    }
+    public static boolean checkKey(int code){
+        for(int i :getKeysDown()){
+            if(i==code) {
+                return true;
+            }
+        }
+        return false;
     }
 }

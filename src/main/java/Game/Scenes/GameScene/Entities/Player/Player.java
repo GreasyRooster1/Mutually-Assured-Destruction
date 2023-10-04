@@ -3,11 +3,9 @@ package main.java.Game.Scenes.GameScene.Entities.Player;
 import main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect.PlayerBoostEffect;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Setup.Setup;
+import processing.core.PApplet;
 
 public class Player extends Entity {
-    public float phase = 0;
-    private boolean onWayUp = false;
-    private float cooldown = 0;
     public Player(float xa, float ya) {
         super(xa, ya);
         setRender(new PlayerRender());
@@ -17,24 +15,6 @@ public class Player extends Entity {
     @Override
     public void everyFrame() {
         super.everyFrame();
-        setX(Setup.getMouseX());
-        setY(Setup.getMouseY());
-        if(onWayUp){
-            phase +=2;
-            if(phase >=20){
-                onWayUp = false;
-            }
-        }else {
-            if (phase > 0) {
-                phase--;
-            }
-        }
-        if(phase>0){
-            cooldown = 20;
-        }else{
-            cooldown--;
-        }
-        setSize(7 + phase);
     }
 
     @Override
@@ -44,11 +24,19 @@ public class Player extends Entity {
     }
 
     @Override
-    public void onKey(char key) {
+    public void whileKey(char key) {
         super.onKey(key);
-        if(key==' '&&cooldown<0){
-            onWayUp = true;
-            Setup.getSceneManager().getCurrentScene().addEntity(new PlayerBoostEffect(getX(),getY()));
+        if(Setup.checkKey(87)){
+            setY(getY()-5);
+        }
+        if(Setup.checkKey(83)){
+            setY(getY()+5);
+        }
+        if(Setup.checkKey(65)){
+            setX(getX()-5);
+        }
+        if(Setup.checkKey(68)){
+            setX(getX()+5);
         }
     }
 }

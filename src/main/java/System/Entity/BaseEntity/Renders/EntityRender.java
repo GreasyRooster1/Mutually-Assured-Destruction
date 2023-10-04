@@ -19,4 +19,8 @@ public class EntityRender {
         applet.rect(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
         applet.noStroke();
     }
+
+    public void preRender(Entity entity) {
+        Setup.getApplet().noStroke();
+    }
 }

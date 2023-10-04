@@ -48,6 +48,7 @@ public class Entity {
     }
 
     void render() {
+        entityRender.preRender(this);
         entityRender.render(this);
     }
 
