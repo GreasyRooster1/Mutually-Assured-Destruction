@@ -36,7 +36,6 @@ public class Main extends PApplet{
             }
         }
         keysDown = t;
-        printArray(keyCode);
     }
 
     public void keyPressed() {
@@ -46,7 +45,6 @@ public class Main extends PApplet{
             }
         }
         keysDown = append(keysDown, keyCode);
-        printArray(keysDown);
     }
 
     public int[] getKeysDown(){

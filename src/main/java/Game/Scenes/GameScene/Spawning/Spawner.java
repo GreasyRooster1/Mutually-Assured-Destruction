@@ -19,13 +19,12 @@ public class Spawner {
         difficulty=1;
     }
     public static void spawn(){
-        if(Setup.getApplet().frameCount%200==0){
+        if(Setup.getApplet().frameCount%170==0){
             difficulty+=0.1f;
         }
         if(Setup.getApplet().frameCount%ceil(20-20*(difficulty/20))!=0){
             return;
         }
-        Logger.log(Float.toString(difficulty),"game");
 
 
         PApplet applet = Setup.getApplet();
