@@ -21,6 +21,18 @@ public class Player extends Entity {
         if(speed>defaultspeed){
             speed--;
         }
+        if(getX()>500){
+            setX(0);
+        }
+        if(getX()<0){
+            setX(500);
+        }
+        if(getY()>500){
+            setY(0);
+        }
+        if(getY()<0){
+            setY(500);
+        }
     }
 
     @Override
