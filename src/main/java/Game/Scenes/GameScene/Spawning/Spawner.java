@@ -5,9 +5,9 @@ import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile.HomingMissile;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HyperMissile.HyperMissile;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Lazer.Lazer;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.LazerBomb.LazerBomb;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun.Minigun;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.Missile;
-import main.java.System.Logging.Logger;
 import main.java.System.Setup.Setup;
 import processing.core.PApplet;
 
@@ -17,7 +17,7 @@ public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
     public static void reset(){
-        difficulty=5;
+        difficulty=6;
     }
     public static void spawn(){
         if(Setup.getApplet().frameCount%170==0){
@@ -74,8 +74,13 @@ public class Spawner {
 
         if(difficulty<5) {return;}
 
-        if (round(applet.random(0, 5)) == 1) {
+        if (round(applet.random(0, 10)) == 1) {
             addProjectile(new Lazer(0,0));
+        }
+        if(difficulty<6) {return;}
+
+        if (round(applet.random(0, 20)) == 1) {
+            addProjectile(new LazerBomb(0,0));
         }
     }
 

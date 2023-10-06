@@ -35,7 +35,7 @@ public class Lazer extends Hit {
             player.kill();
         }
         if(power<100) {
-            power += 5;
+            power += 2;
         }else{
             setSize(15);
             setDecay(1);
