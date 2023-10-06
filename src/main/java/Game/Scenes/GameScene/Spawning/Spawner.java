@@ -1,6 +1,7 @@
 package main.java.Game.Scenes.GameScene.Spawning;
 
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb.ClusterBomb;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Fighter.Fighter;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile.HomingMissile;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HyperMissile.HyperMissile;
@@ -17,13 +18,13 @@ public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
     public static void reset(){
-        difficulty=6;
+        difficulty=7;
     }
     public static void spawn(){
-        if(Setup.getApplet().frameCount%170==0){
+        if(Setup.getApplet().frameCount%150==0){
             difficulty+=0.1f;
         }
-        if(Setup.getApplet().frameCount%ceil(20-20*(difficulty/20))!=0){
+        if(Setup.getApplet().frameCount%ceil(20-20*(difficulty/40))!=0){
             return;
         }
 
@@ -79,8 +80,13 @@ public class Spawner {
         }
         if(difficulty<6) {return;}
 
-        if (round(applet.random(0, 20)) == 1) {
+        if (round(applet.random(0, 60)) == 1) {
             addProjectile(new LazerBomb(0,0));
+        }
+        if(difficulty<7) {return;}
+
+        if (round(applet.random(0, 40)) == 1) {
+            addProjectile(new Fighter(0,0));
         }
     }
 

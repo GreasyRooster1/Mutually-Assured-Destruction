@@ -20,6 +20,9 @@ public class Hit extends Entity {
         if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2&&player.isCanGetHit()) {
             player.kill();
         }
+        if(dist(getX(), getY(),0,0)>600){
+            kill();
+        }
     }
 
     public void onMissileCreate(){
