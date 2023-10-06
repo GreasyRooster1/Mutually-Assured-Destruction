@@ -22,7 +22,8 @@ public class ClusterBomb extends Hit {
     @Override
     public void onMissileCreate() {
         super.onMissileCreate();
-        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        float dir = atan2(player.getY()-getY(),player.getX()-getX());
         setXvel(cos(dir)*3);
         setYvel(sin(dir)*3);
     }

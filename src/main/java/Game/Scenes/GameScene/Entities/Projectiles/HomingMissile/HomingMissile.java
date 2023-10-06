@@ -1,7 +1,9 @@
 package main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Explosion.Explosion;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
+import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Setup.Setup;
 
 import static processing.core.PApplet.*;
@@ -19,7 +21,8 @@ public class HomingMissile extends Hit {
     @Override
     public void everyFrame() {
         super.everyFrame();
-        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        float dir = atan2(player.getY()-getY(),player.getX()-getX());
         fuel-=1.5f;
         if(fuel>0){
             setXvel(getXvel()+cos(dir)*1.1f*(fuel/100));

@@ -4,6 +4,8 @@ import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Logging.Logger;
 import main.java.System.Setup.Setup;
 
+import java.awt.*;
+
 public class Utils {
     public static Object[] append(Object[] arr, Object value) {
         if (arr == null) {
@@ -101,5 +103,32 @@ public class Utils {
 
         // return the resultant array
         return anotherArray;
+    }
+    public static Point getClostestPointOnLine(int sx1, int sy1, int sx2, int sy2, int px, int py)
+    {
+        double xDelta = sx2 - sx1;
+        double yDelta = sy2 - sy1;
+
+        if ((xDelta == 0) && (yDelta == 0))
+        {
+            throw new IllegalArgumentException("Segment start equals segment end");
+        }
+
+        double u = ((px - sx1) * xDelta + (py - sy1) * yDelta) / (xDelta * xDelta + yDelta * yDelta);
+
+        final Point closestPoint;
+        if (u < 0)
+        {
+            closestPoint = new Point(sx1, sy1);
+        }
+        else if (u > 1)
+        {
+            closestPoint = new Point(sx2, sy2);
+        }
+        else
+        {
+            closestPoint = new Point((int) Math.round(sx1 + u * xDelta), (int) Math.round(sy1 + u * yDelta));
+        }
+        return closestPoint;
     }
 }

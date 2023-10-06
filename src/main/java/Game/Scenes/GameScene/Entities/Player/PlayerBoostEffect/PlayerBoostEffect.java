@@ -7,16 +7,14 @@ public class PlayerBoostEffect extends Entity {
 
     public PlayerBoostEffect(float xa, float ya) {
         super(xa, ya);
-        setSize(10);
+        setSize(7);
         setRender(new PlayerBoostEffectRender());
+        setLife(127);
+        setDecay(30);
     }
 
     @Override
     public void everyFrame() {
         super.everyFrame();
-        setSize(getSize()+4);
-        if(getSize()>50){
-            kill();
-        }
     }
 }

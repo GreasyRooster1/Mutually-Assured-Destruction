@@ -19,7 +19,7 @@ public class Minigun extends Hit {
             ammo--;
         }
         if(ammo<=0){
-
+            kill();
         }
     }
 }

@@ -1,5 +1,6 @@
 package main.java.Game.Scenes.GameScene.Entities.Player;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect.PlayerBoostEffect;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Entity.BaseEntity.Renders.EntityRender;
 import main.java.System.Scene.Scene;
@@ -17,5 +18,7 @@ public class PlayerRender extends EntityRender {
         float camY = currentScene.getCamera().getCamY();
         applet.fill(0,255,0);
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
+        Setup.getSceneManager().getCurrentScene().addEntity(new PlayerBoostEffect(e.getX(),e.getY()));
+        Setup.getSceneManager().getCurrentScene().addEntity(new PlayerBoostEffect(e.getX()-e.getXvel()/2,e.getY()-e.getYvel()/2));
     }
 }

@@ -1,6 +1,8 @@
 package main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
+import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Setup.Setup;
 
 import static processing.core.PApplet.*;
@@ -18,7 +20,8 @@ public class Missile extends Hit {
     @Override
     public void onMissileCreate() {
         super.onMissileCreate();
-        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        float dir = atan2(player.getY()-getY(),player.getX()-getX());
         setXvel(cos(dir));
         setYvel(sin(dir));
     }

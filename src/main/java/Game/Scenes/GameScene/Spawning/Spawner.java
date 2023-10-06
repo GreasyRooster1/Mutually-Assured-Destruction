@@ -4,6 +4,7 @@ import main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb.ClusterB
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile.HomingMissile;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HyperMissile.HyperMissile;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Lazer.Lazer;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun.Minigun;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.Missile;
 import main.java.System.Logging.Logger;
@@ -16,7 +17,7 @@ public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
     public static void reset(){
-        difficulty=1;
+        difficulty=5;
     }
     public static void spawn(){
         if(Setup.getApplet().frameCount%170==0){
@@ -48,11 +49,11 @@ public class Spawner {
         if (round(applet.random(0, 20)) == 1) {
             addProjectile(new HyperMissile(0,0));
         }
-        if(round(applet.random(0,20))==1){
+        if(round(applet.random(0,40))==1){
             addProjectile(new ClusterBomb(0,0));
         }
 
-        if(round(applet.random(0,5))==1){
+        if(round(applet.random(0,10))==1){
             addProjectile(new Missile(0,0));
         }
 
@@ -69,6 +70,12 @@ public class Spawner {
 
         if (round(applet.random(0, 40)) == 1) {
             addProjectile(new Minigun(0,0));
+        }
+
+        if(difficulty<5) {return;}
+
+        if (round(applet.random(0, 5)) == 1) {
+            addProjectile(new Lazer(0,0));
         }
     }
 

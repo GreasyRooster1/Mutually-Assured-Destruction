@@ -8,6 +8,7 @@ import processing.core.PApplet;
 public class Player extends Entity {
     private float speed = 0;
     private float defaultspeed = 3;
+    private boolean canGetHit = false;
     public Player(float xa, float ya) {
         super(xa, ya);
         setRender(new PlayerRender());
@@ -20,6 +21,9 @@ public class Player extends Entity {
         super.everyFrame();
         if(speed>defaultspeed){
             speed--;
+            canGetHit = false;
+        }else{
+            canGetHit = true;
         }
         if(getX()>500){
             setX(0);
@@ -39,6 +43,7 @@ public class Player extends Entity {
     public void kill() {
         super.kill();
         Setup.getSceneManager().changeScene("loseScene");
+
     }
 
     @Override
@@ -63,5 +68,13 @@ public class Player extends Entity {
         if(key==' '&&speed==defaultspeed){
             speed = 12;
         }
+    }
+
+    public boolean isCanGetHit() {
+        return canGetHit;
+    }
+
+    public void setCanGetHit(boolean canGetHit) {
+        this.canGetHit = canGetHit;
     }
 }

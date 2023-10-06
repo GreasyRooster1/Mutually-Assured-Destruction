@@ -1,7 +1,9 @@
 package main.java.Game.Scenes.GameScene.Entities.Projectiles.HyperMissile;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Hit.Hit;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.MissileRender;
+import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Setup.Setup;
 
 import static processing.core.PApplet.*;
@@ -19,7 +21,8 @@ public class HyperMissile extends Hit {
     @Override
     public void onMissileCreate() {
         super.onMissileCreate();
-        float dir = atan2(Setup.getMouseY()-getY(),Setup.getMouseX()-getX());
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        float dir = atan2(player.getY()-getY(),player.getX()-getX());
         setXvel(cos(dir));
         setYvel(sin(dir));
     }

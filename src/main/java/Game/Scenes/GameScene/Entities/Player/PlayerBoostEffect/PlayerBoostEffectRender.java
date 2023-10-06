@@ -17,9 +17,7 @@ public class PlayerBoostEffectRender extends EntityRender {
         Scene currentScene = Setup.getSceneManager().getCurrentScene();
         float camX = currentScene.getCamera().getCamX();
         float camY = currentScene.getCamera().getCamY();
-        applet.noFill();
-        applet.stroke(0,255,0,lerp(0,255,e.getW()/50));
-        applet.strokeWeight(e.getW()/4);
+        applet.fill(0,255,0,e.getLife());
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
     }
 }
