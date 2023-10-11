@@ -18,7 +18,7 @@ public class Hit extends Entity {
         super.everyFrame();
         Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
         if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2&&player.isCanGetHit()) {
-            player.kill();
+            player.hit();
         }
         if(dist(getX(), getY(),0,0)>600){
             kill();

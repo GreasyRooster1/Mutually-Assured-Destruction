@@ -1,5 +1,6 @@
 package main.java.Game.Scenes.GameScene.Entities.Player;
 
+import com.sun.source.tree.IfTree;
 import main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect.PlayerBoostEffect;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Setup.Setup;
@@ -7,8 +8,10 @@ import processing.core.PApplet;
 
 public class Player extends Entity {
     private float speed = 0;
+    private int lives = 3;
     private float defaultspeed = 3;
     private boolean canGetHit = false;
+    private int iFrames = 0;
     public Player(float xa, float ya) {
         super(xa, ya);
         setRender(new PlayerRender());
@@ -25,6 +28,12 @@ public class Player extends Entity {
         }else{
             canGetHit = true;
         }
+        if(iFrames>0){
+            canGetHit=false;
+            iFrames--;
+        }else{
+            canGetHit = true;
+        }
         if(getX()>500){
             setX(0);
         }
@@ -36,6 +45,9 @@ public class Player extends Entity {
         }
         if(getY()<0){
             setY(500);
+        }
+        if(lives<1){
+            kill();
         }
     }
 
@@ -76,5 +88,18 @@ public class Player extends Entity {
 
     public void setCanGetHit(boolean canGetHit) {
         this.canGetHit = canGetHit;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
+    public void hit() {
+        lives--;
+        iFrames = 10;
     }
 }

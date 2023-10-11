@@ -1,6 +1,7 @@
 package main.java.Game.Scenes.GameScene;
 
 import main.java.Game.Scenes.GameScene.Entities.LevelText.LevelText;
+import main.java.Game.Scenes.GameScene.Entities.LifeCounter.LivesCounter;
 import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Spawning.Spawner;
 import main.java.System.Entity.BaseEntity.Entity;
@@ -25,6 +26,7 @@ public class GameScene extends Scene {
         addEntity(player);
         Spawner.reset();
         addEntity(new LevelText(0,15));
+        addEntity(new LivesCounter(420,20));
     }
 
     @Override
