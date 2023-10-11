@@ -26,7 +26,7 @@ public class GameScene extends Scene {
         addEntity(player);
         Spawner.reset();
         addEntity(new LevelText(0,15));
-        addEntity(new LivesCounter(420,20));
+        addEntity(new LivesCounter(470,20));
     }
 
     @Override

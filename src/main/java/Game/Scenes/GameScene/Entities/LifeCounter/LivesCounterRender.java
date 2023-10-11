@@ -1,5 +1,6 @@
 package main.java.Game.Scenes.GameScene.Entities.LifeCounter;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.Game.Scenes.GameScene.Spawning.Spawner;
 import main.java.System.Entity.BaseEntity.Entity;
@@ -15,11 +16,9 @@ public class LivesCounterRender extends EntityRender {
     public void render(Entity e) {
         PApplet applet = Setup.getApplet();
         applet.fill(255,0,0);
-        if(((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player.getLives()<=0){return;}
-        applet.ellipse(e.getX(),e.getY(),25,25);
-        if(((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player.getLives()<=1){return;}
-        applet.ellipse(e.getX()+30,e.getY(),25,25);
-        if(((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player.getLives()<=2){return;}
-        applet.ellipse(e.getX()+60,e.getY(),25,25);
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        for(int i=0;i<player.getLives();i++) {
+            applet.ellipse(e.getX()-i*30, e.getY(), 25, 25);
+        }
     }
 }

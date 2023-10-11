@@ -1,28 +1,19 @@
-package main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect;
+package main.java.Game.Scenes.GameScene.Entities.LifePickup;
 
-import main.java.Game.Scenes.GameScene.Entities.Player.Player;
-import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Entity.BaseEntity.Renders.EntityRender;
 import main.java.System.Scene.Scene;
 import main.java.System.Setup.Setup;
 import processing.core.PApplet;
 
-import static processing.core.PApplet.lerp;
-import static processing.core.PApplet.min;
-
-public class PlayerBoostEffectRender extends EntityRender {
+public class LifePickupRender extends EntityRender {
     @Override
     public void render(Entity e) {
         PApplet applet = Setup.getApplet();
         Scene currentScene = Setup.getSceneManager().getCurrentScene();
         float camX = currentScene.getCamera().getCamX();
         float camY = currentScene.getCamera().getCamY();
-        if(((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player.getIFrames()>0){
-            applet.fill(0,255,255,e.getLife());
-        }else{
-            applet.fill(0,255,0,e.getLife());
-        }
+        applet.fill(0,255,255);
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
     }
 }

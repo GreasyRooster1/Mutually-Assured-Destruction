@@ -16,7 +16,12 @@ public class PlayerRender extends EntityRender {
         Scene currentScene = Setup.getSceneManager().getCurrentScene();
         float camX = currentScene.getCamera().getCamX();
         float camY = currentScene.getCamera().getCamY();
-        applet.fill(0,255,0);
+
+        if(((Player)e).getIFrames()>0){
+            applet.fill(0,255,255);
+        }else{
+            applet.fill(0,255,0);
+        }
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
         Setup.getSceneManager().getCurrentScene().addEntity(new PlayerBoostEffect(e.getX(),e.getY()));
         Setup.getSceneManager().getCurrentScene().addEntity(new PlayerBoostEffect(e.getX()-e.getXvel()/2,e.getY()-e.getYvel()/2));

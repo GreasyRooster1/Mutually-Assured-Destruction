@@ -3,6 +3,7 @@ package main.java.Game.Scenes.GameScene.Entities.Player;
 import com.sun.source.tree.IfTree;
 import main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect.PlayerBoostEffect;
 import main.java.System.Entity.BaseEntity.Entity;
+import main.java.System.Logging.Logger;
 import main.java.System.Setup.Setup;
 import processing.core.PApplet;
 
@@ -73,6 +74,7 @@ public class Player extends Entity {
         if(Setup.checkKey(68)){
             setX(getX()+speed);
         }
+        System.out.println(lives);
     }
 
     @Override
@@ -93,6 +95,9 @@ public class Player extends Entity {
     public int getLives() {
         return lives;
     }
+    public int getIFrames() {
+        return iFrames;
+    }
 
     public void setLives(int lives) {
         this.lives = lives;
@@ -100,6 +105,6 @@ public class Player extends Entity {
 
     public void hit() {
         lives--;
-        iFrames = 10;
+        iFrames = 100;
     }
 }
