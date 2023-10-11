@@ -9,6 +9,8 @@ import main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile.Homing
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.HyperMissile.HyperMissile;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Lazer.Lazer;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.LazerBomb.LazerBomb;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.LazerRowsEvent.LazerRowsEvent;
+import main.java.Game.Scenes.GameScene.Entities.Projectiles.Lightning.Lightning;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun.Minigun;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.Missile.Missile;
 import main.java.Game.Scenes.GameScene.GameScene;
@@ -20,10 +22,16 @@ import static processing.core.PApplet.*;
 public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
+    private static boolean bossFight = false;
     public static void reset(){
-        difficulty=7;
+        difficulty=9;
     }
     public static void spawn(){
+        bossFight();
+        if(difficulty>=10) {
+            bossFight = true;
+            return;
+        }
         if(difficulty==round(difficulty)&&difficulty>=2){
             Player p = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
             p.setLives(p.getLives()+1);
@@ -43,6 +51,13 @@ public class Spawner {
         if(applet.frameCount-lastSpawnFrame>100){
             addProjectile(new Missile(0,0));
         }
+    }
+
+    private static void bossFight() {
+        if(!bossFight){
+            return;
+        }
+
     }
 
     private static void spawns(PApplet applet){
@@ -90,12 +105,22 @@ public class Spawner {
         if(difficulty<6) {return;}
 
         if (round(applet.random(0, 60)) == 1) {
-            addProjectile(new LazerBomb(0,0));
+            addProjectile(new Lightning(0,0));
         }
         if(difficulty<7) {return;}
 
         if (round(applet.random(0, 40)) == 1) {
             addProjectile(new Fighter(0,0));
+        }
+        if(difficulty<8) {return;}
+
+        if (round(applet.random(0, 40)) == 1) {
+            addProjectile(new LazerBomb(0,0));
+        }
+        if(difficulty<9) {return;}
+
+        if (round(applet.random(0, 40)) == 1) {
+            addProjectile(new LazerRowsEvent(0,0));
         }
     }
 

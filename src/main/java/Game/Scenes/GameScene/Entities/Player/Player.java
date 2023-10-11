@@ -105,6 +105,6 @@ public class Player extends Entity {
 
     public void hit() {
         lives--;
-        iFrames = 100;
+        iFrames = 30;
     }
 }
