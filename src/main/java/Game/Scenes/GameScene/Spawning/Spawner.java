@@ -24,13 +24,11 @@ public class Spawner {
     private static int lastSpawnFrame = 0;
     private static boolean bossFight = false;
     public static void reset(){
-        difficulty=9;
+        difficulty=9.9f;
     }
     public static void spawn(){
-        bossFight();
         if(difficulty>=10) {
-            bossFight = true;
-            return;
+            Setup.getSceneManager().changeScene("bossScene");
         }
         if(difficulty==round(difficulty)&&difficulty>=2){
             Player p = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
