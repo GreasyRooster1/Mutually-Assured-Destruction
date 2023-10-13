@@ -22,14 +22,12 @@ import static processing.core.PApplet.*;
 public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
-    private static boolean bossFight = false;
     public static void reset(){
-        difficulty=9;
+        difficulty=9.9f;
     }
     public static void spawn(){
-        bossFight();
         if(difficulty>=10) {
-            bossFight = true;
+            bossFight();
             return;
         }
         if(difficulty==round(difficulty)&&difficulty>=2){
@@ -44,7 +42,7 @@ public class Spawner {
             return;
         }
         PApplet applet = Setup.getApplet();
-        if(round(applet.random(0,30))==1){
+        if(round(applet.random(0,160))==1){
             Setup.getSceneManager().getSceneByName("gameScene").addEntity(new LifePickup(applet.random(0,500),applet.random(0,500)));
         }
         spawns(applet);
@@ -54,10 +52,10 @@ public class Spawner {
     }
 
     private static void bossFight() {
-        if(!bossFight){
-            return;
+        println(Setup.getSceneManager().getCurrentScene().entities.length);
+        if(Setup.getSceneManager().getCurrentScene().entities.length<=20){
+            Setup.getSceneManager().changeScene("bossScene");
         }
-
     }
 
     private static void spawns(PApplet applet){

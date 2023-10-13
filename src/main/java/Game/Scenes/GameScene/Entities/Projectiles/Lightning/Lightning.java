@@ -37,8 +37,4 @@ public class Lightning extends Hit {
             py = py + sin(dir) * 75;
         }
     }
-
-    @Override
-    public void everyFrame() {
-    }
 }

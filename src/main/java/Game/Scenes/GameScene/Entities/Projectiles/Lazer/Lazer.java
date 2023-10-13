@@ -28,6 +28,7 @@ public class Lazer extends Hit {
     }
 
     public void everyFrame() {
+        super.everyFrame();
         Player player = ((GameScene) Setup.getSceneManager().getSceneByName("gameScene")).player;
         Point closest = getClostestPointOnLine((int) getX(),(int) getY(),(int) ex,(int) ey,(int) player.getX(),(int) player.getY());
 

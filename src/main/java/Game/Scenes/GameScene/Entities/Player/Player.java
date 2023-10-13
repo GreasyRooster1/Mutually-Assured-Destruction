@@ -10,7 +10,7 @@ import processing.core.PApplet;
 public class Player extends Entity {
     private float speed = 0;
     private int lives = 3;
-    private float defaultspeed = 3;
+    private final float defaultspeed = 3;
     private boolean canGetHit = false;
     private int iFrames = 0;
     public Player(float xa, float ya) {
@@ -23,17 +23,18 @@ public class Player extends Entity {
     @Override
     public void everyFrame() {
         super.everyFrame();
-        if(speed>defaultspeed){
+        if(speed>defaultspeed) {
             speed--;
-            canGetHit = false;
-        }else{
-            canGetHit = true;
         }
         if(iFrames>0){
             canGetHit=false;
             iFrames--;
         }else{
-            canGetHit = true;
+            if(speed>defaultspeed){
+                canGetHit = false;
+            }else{
+                canGetHit = true;
+            }
         }
         if(getX()>500){
             setX(0);
@@ -49,6 +50,10 @@ public class Player extends Entity {
         }
         if(lives<1){
             kill();
+        }
+        if(iFrames>=23){
+            Setup.getApplet().fill(255);
+            Setup.getApplet().rect(-100,-100,1000,1000);
         }
     }
 
@@ -74,7 +79,6 @@ public class Player extends Entity {
         if(Setup.checkKey(68)){
             setX(getX()+speed);
         }
-        System.out.println(lives);
     }
 
     @Override
@@ -106,5 +110,6 @@ public class Player extends Entity {
     public void hit() {
         lives--;
         iFrames = 30;
+
     }
 }

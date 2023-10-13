@@ -26,8 +26,4 @@ public class LazerRowsEvent extends Hit {
             Setup.getSceneManager().getCurrentScene().addEntity(lazer);
         }
     }
-
-    @Override
-    public void everyFrame() {
-    }
 }
