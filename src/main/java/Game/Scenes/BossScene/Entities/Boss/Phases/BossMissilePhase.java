@@ -18,7 +18,7 @@ public class BossMissilePhase extends BossPhase {
     }
     @Override
     public void run(Entity e){
-         if(Setup.getApplet().frameCount%20==0) {
+         if(Setup.getApplet().frameCount%10==0) {
              Missile missile = new Missile(500, 250+Setup.getApplet().random(-100,100));
              Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
              float dir = atan2(player.getY()-missile.getY(),player.getX()-missile.getX())+Setup.getApplet().random(-1,1);
@@ -26,6 +26,14 @@ public class BossMissilePhase extends BossPhase {
              missile.setYvel(sin(dir));
              Setup.getSceneManager().getCurrentScene().addEntity(missile);
          }
+        if(Setup.getApplet().frameCount%100==0) {
+            Missile missile = new Missile(500, 250+Setup.getApplet().random(-100,100));
+            Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+            float dir = atan2(player.getY()-missile.getY(),player.getX()-missile.getX());
+            missile.setXvel(cos(dir));
+            missile.setYvel(sin(dir));
+            Setup.getSceneManager().getCurrentScene().addEntity(missile);
+        }
     }
 
 }

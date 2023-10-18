@@ -1,9 +1,7 @@
 package main.java.Game.Scenes.BossScene.Entities.Boss.Body;
 
+import main.java.Game.Scenes.BossScene.Entities.Boss.Phases.*;
 import main.java.Game.Scenes.BossScene.Entities.Boss.Phases.Base.BossPhase;
-import main.java.Game.Scenes.BossScene.Entities.Boss.Phases.BossHyperMissilePhase;
-import main.java.Game.Scenes.BossScene.Entities.Boss.Phases.BossMissilePhase;
-import main.java.Game.Scenes.BossScene.Entities.Boss.Phases.BossMovePhase;
 import main.java.System.Entity.BaseEntity.Entity;
 import processing.core.PApplet;
 
@@ -24,6 +22,12 @@ public class BossBody extends Entity {
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossMovePhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossMissilePhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossHyperMissilePhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossBombPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunSetupPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossLazerPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossSuperLazerPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossShockPhase());
     }
 
     @Override

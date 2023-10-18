@@ -23,8 +23,10 @@ import static processing.core.PApplet.*;
 public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
+    private static boolean boss = false;
     public static void reset(){
         difficulty=9.9f;
+        boss=false;
     }
     public static void spawn(){
         if(difficulty>=10) {
@@ -53,8 +55,9 @@ public class Spawner {
     }
 
     private static void bossFight() {
-        if(Setup.getSceneManager().getCurrentScene().entities.length<=20){
+        if(Setup.getSceneManager().getCurrentScene().entities.length<=20&&!boss){
             Setup.getSceneManager().getCurrentScene().addEntity(new BossBody(750,250));
+            boss = true;
         }
     }
 

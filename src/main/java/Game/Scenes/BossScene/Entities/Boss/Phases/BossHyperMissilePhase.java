@@ -14,16 +14,16 @@ public class BossHyperMissilePhase extends BossPhase {
 
      public BossHyperMissilePhase(){
         super();
-        setActivationFrame(500);
+        setActivationFrame(700);
     }
     @Override
     public void run(Entity e){
-         if(Setup.getApplet().frameCount%40==0) {
+         if(Setup.getApplet().frameCount%20==0) {
              HyperMissile missile = new HyperMissile(500, 250 + Setup.getApplet().random(-50, 50));
              missile.onMissileCreate();
              Setup.getSceneManager().getCurrentScene().addEntity(missile);
          }
-        if(Setup.getApplet().frameCount%100==0) {
+        if(Setup.getApplet().frameCount%30==0) {
             Missile missile = new Missile(500, 250 + Setup.getApplet().random(-200, 200));
             missile.onMissileCreate();
             Setup.getSceneManager().getCurrentScene().addEntity(missile);

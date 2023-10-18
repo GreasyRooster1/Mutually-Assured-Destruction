@@ -5,7 +5,7 @@ import main.java.Game.Scenes.GameScene.Entities.Projectiles.Minigun.Bullet.Bulle
 import main.java.System.Setup.Setup;
 
 public class Minigun extends Hit {
-    private int ammo = 20;
+    public int ammo = 20;
     public Minigun(float xa, float ya) {
         super(xa, ya);
         setRender(new MinigunRender());

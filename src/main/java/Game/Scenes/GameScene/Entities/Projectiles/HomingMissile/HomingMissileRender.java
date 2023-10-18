@@ -1,5 +1,7 @@
 package main.java.Game.Scenes.GameScene.Entities.Projectiles.HomingMissile;
 
+import main.java.Game.Scenes.GameScene.Entities.Player.Player;
+import main.java.Game.Scenes.GameScene.GameScene;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Entity.BaseEntity.Renders.EntityRender;
 import main.java.System.Scene.Scene;
@@ -17,7 +19,8 @@ public class HomingMissileRender extends EntityRender {
         float camY = currentScene.getCamera().getCamY();
         applet.fill(255,0,50);
         applet.ellipse(e.getX() + camX, e.getY() + camY, e.getW(), e.getH());
-        float dir = atan2(e.getY()-Setup.getMouseY(),e.getX()-Setup.getMouseX());
+        Player player = ((GameScene)Setup.getSceneManager().getSceneByName("gameScene")).player;
+        float dir = atan2(e.getY()-player.getY(),e.getX()-player.getX());
         applet.stroke(255,255,0);
         applet.strokeWeight(3);
         applet.line(e.getX() + camX, e.getY() + camY,e.getX() + camX+cos(dir)*10, e.getY() + camY+sin(dir)*10);

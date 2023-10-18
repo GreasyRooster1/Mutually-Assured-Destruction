@@ -62,7 +62,7 @@ public class Player extends Entity {
             kill();
         }
         if(iFrames>=23){
-            Setup.getApplet().fill(255);
+            Setup.getApplet().fill(255,0,0);
             Setup.getApplet().rect(-100,-100,1000,1000);
         }
     }
