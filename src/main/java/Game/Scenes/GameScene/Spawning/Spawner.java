@@ -24,8 +24,9 @@ public class Spawner {
     public static float difficulty = 1;
     private static int lastSpawnFrame = 0;
     private static boolean boss = false;
+    public static boolean hard = false;
     public static void reset(){
-        difficulty=9.9f;
+        difficulty=1f;
         boss=false;
     }
     public static void spawn(){
@@ -50,6 +51,9 @@ public class Spawner {
         }
 
         spawns(applet);
+        if(hard){
+            spawns(applet);
+        }
         if(applet.frameCount-lastSpawnFrame>100){
             addProjectile(new Missile(0,0));
         }
