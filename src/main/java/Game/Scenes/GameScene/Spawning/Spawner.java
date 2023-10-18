@@ -29,6 +29,10 @@ public class Spawner {
         boss=false;
     }
     public static void spawn(){
+        PApplet applet = Setup.getApplet();
+        if(round(applet.random(0,2000))==1){
+            Setup.getSceneManager().getSceneByName("gameScene").addEntity(new LifePickup(applet.random(0,500),applet.random(0,500)));
+        }
         if(difficulty>=10) {
             bossFight();
             return;
@@ -44,10 +48,7 @@ public class Spawner {
         if(Setup.getApplet().frameCount%ceil(20-20*(difficulty/40))!=0){
             return;
         }
-        PApplet applet = Setup.getApplet();
-        if(round(applet.random(0,160))==1){
-            Setup.getSceneManager().getSceneByName("gameScene").addEntity(new LifePickup(applet.random(0,500),applet.random(0,500)));
-        }
+
         spawns(applet);
         if(applet.frameCount-lastSpawnFrame>100){
             addProjectile(new Missile(0,0));

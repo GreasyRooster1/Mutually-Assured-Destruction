@@ -15,18 +15,18 @@ public class BossSuperLazerPhase extends BossPhase {
     }
     @Override
     public void run(Entity e){
-        if(Setup.getApplet().frameCount%90==0) {
+        if(Setup.getApplet().frameCount%100==0) {
             LazerRowsEvent homingMissile = new LazerRowsEvent(500, 250 + Setup.getApplet().random(-200, 200));
             homingMissile.onMissileCreate();
             Setup.getSceneManager().getCurrentScene().addEntity(homingMissile);
         }
-        if(Setup.getApplet().frameCount%50==0) {
+        if(Setup.getApplet().frameCount%120==0) {
             LazerBomb missile = new LazerBomb(500, 250 + Setup.getApplet().random(-200, 200));
             missile.onMissileCreate();
             Setup.getSceneManager().getCurrentScene().addEntity(missile);
 
         }
-        if(Setup.getApplet().frameCount%40==0) {
+        if(Setup.getApplet().frameCount%90==0) {
             Lazer homingMissile = new Lazer(500, 250 + Setup.getApplet().random(-200, 200));
             homingMissile.onMissileCreate();
             Setup.getSceneManager().getCurrentScene().addEntity(homingMissile);

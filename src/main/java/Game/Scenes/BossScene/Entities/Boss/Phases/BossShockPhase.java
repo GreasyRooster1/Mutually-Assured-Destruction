@@ -15,7 +15,7 @@ public class BossShockPhase extends BossPhase {
     }
     @Override
     public void run(Entity e){
-        if(Setup.getApplet().frameCount%70==0) {
+        if(Setup.getApplet().frameCount%120==0) {
             Lightning missile = new Lightning(500, 250 + Setup.getApplet().random(-200, 200));
             missile.onMissileCreate();
             Setup.getSceneManager().getCurrentScene().addEntity(missile);
