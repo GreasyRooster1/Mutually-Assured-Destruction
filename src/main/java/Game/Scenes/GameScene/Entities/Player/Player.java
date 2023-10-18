@@ -2,6 +2,7 @@ package main.java.Game.Scenes.GameScene.Entities.Player;
 
 import com.sun.source.tree.IfTree;
 import main.java.Game.Scenes.GameScene.Entities.Player.PlayerBoostEffect.PlayerBoostEffect;
+import main.java.Game.Scenes.GameScene.Spawning.Spawner;
 import main.java.System.Entity.BaseEntity.Entity;
 import main.java.System.Logging.Logger;
 import main.java.System.Setup.Setup;
@@ -36,11 +37,20 @@ public class Player extends Entity {
                 canGetHit = true;
             }
         }
-        if(getX()>500){
-            setX(0);
-        }
-        if(getX()<0){
-            setX(500);
+        if(Spawner.difficulty<10) {
+            if (getX() > 500) {
+                setX(0);
+            }
+            if (getX() < 0) {
+                setX(500);
+            }
+        }else{
+            if (getX() > 500) {
+                setX(500);
+            }
+            if (getX() < 0) {
+                setX(0);
+            }
         }
         if(getY()>500){
             setY(0);

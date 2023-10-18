@@ -1,5 +1,6 @@
 package main.java.Game.Scenes.GameScene.Spawning;
 
+import main.java.Game.Scenes.BossScene.Entities.Boss.Body.BossBody;
 import main.java.Game.Scenes.GameScene.Entities.LifePickup.LifePickup;
 import main.java.Game.Scenes.GameScene.Entities.Player.Player;
 import main.java.Game.Scenes.GameScene.Entities.Projectiles.ClusterBomb.ClusterBomb;
@@ -52,9 +53,8 @@ public class Spawner {
     }
 
     private static void bossFight() {
-        println(Setup.getSceneManager().getCurrentScene().entities.length);
         if(Setup.getSceneManager().getCurrentScene().entities.length<=20){
-            Setup.getSceneManager().changeScene("bossScene");
+            Setup.getSceneManager().getCurrentScene().addEntity(new BossBody(750,250));
         }
     }
 
