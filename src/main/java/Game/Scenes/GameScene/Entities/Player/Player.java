@@ -10,7 +10,7 @@ import processing.core.PApplet;
 
 public class Player extends Entity {
     private float speed = 0;
-    private int lives = 3;
+    private int lives = 250;
     private final float defaultspeed = 3;
     private boolean canGetHit = false;
     private int iFrames = 0;

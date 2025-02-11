@@ -26,12 +26,13 @@ public class Lightning extends Hit {
         float px = getX();
         float py = getY();
         for(float i=0;i<30;i++){
-            for(float j=0;j<round(Setup.getApplet().random(1,3));j++) {
+            for(float j=0;j<round(Setup.getApplet().random(1,2));j++) {
                 Bolt bolt = new Bolt(px, py);
-                dir = baseDir+Setup.getApplet().random(-1f, 1f);
+                dir = baseDir+radians(Setup.getApplet().random(-30f, 30f));
                 bolt.ex = px + cos(dir) * 75;
                 bolt.ey = py + sin(dir) * 75;
                 Setup.getSceneManager().getCurrentScene().addEntity(bolt);
+                bolt.power = -i*5;
             }
             px = px + cos(dir) * 75;
             py = py + sin(dir) * 75;

@@ -33,7 +33,7 @@ public class Bolt extends Hit {
             player.hit();
         }
         if(power<100) {
-            power += 6;
+            power += 4;
         }else{
             setSize(15);
             setDecay(1);

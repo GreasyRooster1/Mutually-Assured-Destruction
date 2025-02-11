@@ -32,7 +32,7 @@ public class Lazer extends Hit {
         Player player = ((GameScene) Setup.getSceneManager().getSceneByName("gameScene")).player;
         Point closest = getClostestPointOnLine((int) getX(),(int) getY(),(int) ex,(int) ey,(int) player.getX(),(int) player.getY());
 
-        if (dist(closest.x, closest.y, player.getX(),player.getY())<getSize()&&player.isCanGetHit()&&power>=100) {
+        if (dist(closest.x, closest.y, player.getX(),player.getY())<getSize()*0.8&&player.isCanGetHit()&&power>=100) {
             player.hit();
         }
         if(power<100) {

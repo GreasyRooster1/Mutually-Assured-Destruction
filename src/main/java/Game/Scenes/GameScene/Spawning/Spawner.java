@@ -26,12 +26,12 @@ public class Spawner {
     private static boolean boss = false;
     public static boolean hard = false;
     public static void reset(){
-        difficulty=1f;
+        difficulty=9.9f;
         boss=false;
     }
     public static void spawn(){
         PApplet applet = Setup.getApplet();
-        if(round(applet.random(0,2000))==1){
+        if(round(applet.random(0,2000))==1&&!hard){
             Setup.getSceneManager().getSceneByName("gameScene").addEntity(new LifePickup(applet.random(0,500),applet.random(0,500)));
         }
         if(difficulty>=10) {
