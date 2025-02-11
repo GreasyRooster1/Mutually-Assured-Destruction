@@ -31,12 +31,12 @@ public class BossDeathPhase extends BossPhase {
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
         }
 
-
+        startAnim--;
         if(startAnim>0){
-            startAnim--;
             targetY = 250;
         }else{
-            targetY += sin(Setup.getApplet().frameCount/45f)*3;
+            int lerp = startAnim*-1;
+            targetY = 250+sin(Setup.getApplet().frameCount/45f)*200;
             speed+=0.005f;
         }
 
