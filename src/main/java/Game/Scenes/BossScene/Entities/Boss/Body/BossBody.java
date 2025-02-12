@@ -9,7 +9,7 @@ import static processing.core.PApplet.append;
 import static processing.core.PApplet.println;
 
 public class BossBody extends Entity {
-    public int bossFrames = 6950;
+    public int bossFrames = 0;
     public BossPhase[] bossPhases = {};
     public BossBody(float xa, float ya) {
         super(xa, ya);
@@ -20,14 +20,14 @@ public class BossBody extends Entity {
 
     public void registerPhases(){
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossMovePhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossMissilePhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossHyperMissilePhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossBombPhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunSetupPhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunPhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossLazerPhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossSuperLazerPhase());
-//        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossShockPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossMissilePhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossHyperMissilePhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossBombPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunSetupPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossGunPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossLazerPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossSuperLazerPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossShockPhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossDesperationPhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossDeathPhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new GameOverTrigger());

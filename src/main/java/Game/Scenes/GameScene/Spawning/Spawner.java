@@ -26,7 +26,7 @@ public class Spawner {
     private static boolean boss = false;
     public static boolean hard = false;
     public static void reset(){
-        difficulty=9.9f;
+        difficulty=1f;
         boss=false;
     }
     public static void spawn(){
