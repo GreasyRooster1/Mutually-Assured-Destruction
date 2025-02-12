@@ -31,6 +31,7 @@ public class BossDesperationPhase extends BossPhase {
             bomb.setDir(Setup.getApplet().random(2 * PI));
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
         }
+        e.setY(250+Setup.getApplet().random(-6,6));
 
         Setup.getApplet().fill(255);
         Setup.getApplet().ellipse(targetX, targetY,10,10);
