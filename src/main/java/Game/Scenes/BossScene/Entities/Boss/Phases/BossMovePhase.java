@@ -9,7 +9,7 @@ public class BossMovePhase extends BossPhase {
 
      public BossMovePhase(){
         super();
-        setActivationFrame(0);
+        setActivationFrame(6950);
     }
     @Override
     public void run(Entity e){

@@ -13,19 +13,21 @@ import static processing.core.PConstants.PI;
 
 public class BossDeathPhase extends BossPhase {
     private int bodyY =250;
+    private float delta = 0;
 
     public BossDeathPhase(){
         super();
-        setActivationFrame(7500);
+        setActivationFrame(9000);
     }
     @Override
     public void run(Entity e){
-        for (int i = 0; i < 3; i++) {
-            ClusterMiniBomb bomb = new ClusterMiniBomb(400, 250);
+        for (int i = 0; i < 7; i++) {
+            ClusterMiniBomb bomb = new ClusterMiniBomb(500+delta, 250);
             bomb.setDir(Setup.getApplet().random(2 * PI));
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
         }
-        e.setX(e.getX()+2);
+        e.setX(e.getX()+0.5f);
+        delta+=0.5f;
         e.setY(250+Setup.getApplet().random(-6,6));
     }
 

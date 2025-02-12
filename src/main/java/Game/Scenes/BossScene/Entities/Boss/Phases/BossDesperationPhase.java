@@ -16,7 +16,7 @@ public class BossDesperationPhase extends BossPhase {
     private float targetY = 0;
     private float speed = 3;
     private float startAnim = 200;
-    private float deadZone = 180;
+    private float deadZone = 90;
     private float targetDeadZone = 30;
     private float moveSpeed = 0.017f;
 
@@ -26,8 +26,8 @@ public class BossDesperationPhase extends BossPhase {
     }
     @Override
     public void run(Entity e){
-        for (int i = 0; i < 3; i++) {
-            ClusterMiniBomb bomb = new ClusterMiniBomb(400, 250);
+        for (int i = 0; i < 7; i++) {
+            ClusterMiniBomb bomb = new ClusterMiniBomb(500, 250);
             bomb.setDir(Setup.getApplet().random(2 * PI));
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
         }
@@ -43,7 +43,7 @@ public class BossDesperationPhase extends BossPhase {
             float ratio = (360f / amount);
             for (int i = (int) (deadZone/ratio); i < amount; i++) {
                 float dir = angle + i * (360f / amount)-deadZone/2;
-                Missile missile = new Missile(400, 250);
+                Missile missile = new Missile(500, 250);
                 missile.setXvel(cos(radians(dir)) * speed);
                 missile.setYvel(sin(radians(dir)) * speed);
                 Setup.getSceneManager().getCurrentScene().addEntity(missile);
@@ -52,7 +52,7 @@ public class BossDesperationPhase extends BossPhase {
         startAnim--;
         if(startAnim>0){
             targetY = 250;
-            deadZone -= (180-targetDeadZone)/200f;
+            deadZone -= (90-targetDeadZone)/200f;
             return;
         }
 
