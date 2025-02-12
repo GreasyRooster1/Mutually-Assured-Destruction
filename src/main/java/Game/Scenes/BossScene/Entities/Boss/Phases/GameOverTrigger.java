@@ -13,7 +13,7 @@ public class GameOverTrigger extends BossPhase {
 
     public GameOverTrigger(){
         super();
-        setActivationFrame(7550);
+        setActivationFrame(9200);
     }
     @Override
     public void run(Entity e){

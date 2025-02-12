@@ -36,6 +36,9 @@ public class Main extends PApplet{
             }
         }
         keysDown = t;
+        if(key==27){
+            key=0;
+        }
     }
 
     public void keyPressed() {
@@ -45,6 +48,9 @@ public class Main extends PApplet{
             }
         }
         keysDown = append(keysDown, keyCode);
+        if(key==ESC){
+            key=0;
+        }
     }
 
     public int[] getKeysDown(){

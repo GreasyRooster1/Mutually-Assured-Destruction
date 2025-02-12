@@ -30,6 +30,7 @@ public class BossBody extends Entity {
 //        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossShockPhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossDesperationPhase());
         bossPhases = (BossPhase[]) PApplet.append(bossPhases,new BossDeathPhase());
+        bossPhases = (BossPhase[]) PApplet.append(bossPhases,new GameOverTrigger());
     }
 
     @Override
