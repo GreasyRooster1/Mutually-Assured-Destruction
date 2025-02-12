@@ -17,7 +17,7 @@ public class GameOverTrigger extends BossPhase {
     }
     @Override
     public void run(Entity e){
-        Setup.getSceneManager().changeScene("WinScene");
+        Setup.getSceneManager().changeScene("winScene");
     }
 
 }

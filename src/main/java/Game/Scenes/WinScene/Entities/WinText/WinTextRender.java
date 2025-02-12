@@ -20,7 +20,7 @@ public class WinTextRender extends EntityRender {
         applet.textSize(25);
         applet.text("Thanks for playing my game",e.getX(),e.getY()+50);
         applet.textSize(15);
-        applet.text("Space to return to menu"+ floor(Spawner.difficulty),e.getX(),e.getY()+75);
+        applet.text("Space to return to menu",e.getX(),e.getY()+75);
         applet.stroke(0);
     }
 }

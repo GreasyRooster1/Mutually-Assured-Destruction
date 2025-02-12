@@ -27,6 +27,7 @@ public class GameScene extends Scene {
         Spawner.reset();
         addEntity(new LevelText(0,15));
         addEntity(new LivesCounter(470,20));
+
     }
 
     @Override
@@ -34,5 +35,8 @@ public class GameScene extends Scene {
         super.everyFrame();
         Spawner.spawn();
         Setup.getApplet().noStroke();
+        if(Setup.checkKey(8)||Setup.checkKey(80)||Setup.checkKey(27)){
+            Setup.getSceneManager().changeScene("startScene");
+        }
     }
 }
