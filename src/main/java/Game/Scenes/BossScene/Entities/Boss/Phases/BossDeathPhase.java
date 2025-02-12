@@ -19,6 +19,7 @@ public class BossDeathPhase extends BossPhase {
     public float targetY = 0;
     public float speed = 3;
     public float startAnim = 100;
+    public float deadZone = 90;
     public BossDeathPhase(){
         super();
         setActivationFrame(7000);
@@ -31,27 +32,35 @@ public class BossDeathPhase extends BossPhase {
             Setup.getSceneManager().getCurrentScene().addEntity(bomb);
         }
 
-        startAnim--;
-        if(startAnim>0){
-            targetY = 250;
-        }else{
-            int lerp = startAnim*-1;
-            targetY = 250+sin(Setup.getApplet().frameCount/45f)*200;
-            speed+=0.005f;
-        }
+        Setup.getApplet().fill(255);
+        Setup.getApplet().ellipse(targetX, targetY,10,10);
 
         angle = degrees(atan2(targetY-250,targetX-400));
         if(Setup.getApplet().frameCount%7==0) {
             int amount = 45;
-            for (int i = 3; i < amount; i++) {
-                float dir = angle + i * (360f / amount);
-
+            float ratio = (360f / amount);
+            for (int i = (int) (deadZone/ratio); i < amount; i++) {
+                float dir = angle + i * (360f / amount)-deadZone/2;
                 Missile missile = new Missile(400, 250);
                 missile.setXvel(cos(radians(dir)) * speed);
                 missile.setYvel(sin(radians(dir)) * speed);
                 Setup.getSceneManager().getCurrentScene().addEntity(missile);
             }
         }
+        startAnim--;
+        if(startAnim>0){
+            targetY = 250;
+            return;
+        }
+
+        float lerp = startAnim*-1;
+        float target = 250 + sin(Setup.getApplet().frameCount / 45f) * 200;
+        if(startAnim>-30) {
+            targetY = lerp(target,250,(startAnim+30)/30);
+        }else{
+            targetY = target;
+        }
+        speed+=0.005f;
 
     }
 

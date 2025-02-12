@@ -20,7 +20,7 @@ public class Hit extends Entity {
         if (dist(getX(), getY(), player.getX(), player.getY())<getW()/2+player.getW()/2&&player.isCanGetHit()) {
             player.hit();
         }
-        if(dist(getX(), getY(),0,0)>600){
+        if(dist(getX(), getY(),250,250)>600){
             kill();
         }
     }
